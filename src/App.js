@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
+  const handleClickFunction = (e) => {
+    const body = document.querySelector("body");
+    body.style.background = getRandomColor();
+  };
+
+  function getRandomColor() {
+    let letter = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letter[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <h1>Random Bg Color</h1>
+        <button className="btn" onClick={handleClickFunction}>
+          Click Me
+        </button>
+      </div>
+    </>
   );
 }
 
